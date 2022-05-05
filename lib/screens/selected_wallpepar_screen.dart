@@ -6,6 +6,7 @@ import 'package:image_downloader/image_downloader.dart';
 import 'package:wallpapers/models/wallpepars.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:wallpaper_manager_flutter/wallpaper_manager_flutter.dart';
+import 'package:wallpapers/widget/progress_bar.dart';
 
 class SelectedWallpeparScreen extends StatefulWidget {
   const SelectedWallpeparScreen({Key? key}) : super(key: key);
@@ -137,6 +138,10 @@ class _SelectedWallpeparScreenState extends State<SelectedWallpeparScreen> {
               child: Image.network(
                 selectedWallpepar.ingUrl,
                 fit: BoxFit.cover,
+                loadingBuilder: (BuildContext context, Widget child,
+                    ImageChunkEvent? loadingProgress) {
+                 return CirProgBar(context, child, loadingProgress);
+                }
               ),
             ),
             Align(

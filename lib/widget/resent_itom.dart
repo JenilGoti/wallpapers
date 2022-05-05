@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wallpapers/models/wallpepars.dart';
 
 import '../screens/selected_wallpepar_screen.dart';
+import 'progress_bar.dart';
 class ResentItom extends StatelessWidget {
   const ResentItom({Key? key, required this.wallpaper, wallpepar, required this.forSetState}) : super(key: key);
   final Wallpaper wallpaper;
@@ -32,6 +33,10 @@ class ResentItom extends StatelessWidget {
               child: Image.network(
                 wallpaper.ingUrl,
                 fit: BoxFit.cover,
+                  loadingBuilder: (BuildContext context, Widget child,
+                      ImageChunkEvent? loadingProgress) {
+                    return CirProgBar(context, child, loadingProgress);
+                  }
               ),
             ),
           ),

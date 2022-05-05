@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wallpapers/screens/search_screen.dart';
 import 'package:wallpapers/screens/selected_wallpepar_screen.dart';
 import 'package:wallpapers/screens/subcategory_screen.dart';
 import 'package:wallpapers/screens/tab_bar_screen.dart';
@@ -56,6 +57,7 @@ class _MyAppState extends State<MyApp> {
         WallpeparScreen.routName:(context)=>WallpeparScreen(),
         SelectedWallpeparScreen.routName:(context) => SelectedWallpeparScreen(),
         ThemeSettingScreen.routName:(context) => ThemeSettingScreen(setTheme: setTheme,themeData: _themeDeta),
+        SearchBar.routName:(context) => SearchBar(),
 
       },
     );

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:wallpapers/models/subcategory.dart';
 import 'package:wallpapers/screens/wallpaper_screen.dart';
 
+import 'progress_bar.dart';
+
 class SubCategoryItem extends StatelessWidget {
   const SubCategoryItem({required this.subCategoryItem, Key? key})
       : super(key: key);
@@ -35,6 +37,10 @@ class SubCategoryItem extends StatelessWidget {
               child: Image.network(
                 subCategoryItem.imgUrl,
                 fit: BoxFit.cover,
+                  loadingBuilder: (BuildContext context, Widget child,
+                  ImageChunkEvent? loadingProgress) {
+                return CirProgBar(context, child, loadingProgress);
+              }
               ),
             ),
           ),

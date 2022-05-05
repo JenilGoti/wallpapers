@@ -4,6 +4,8 @@ import 'package:wallpapers/DUMMI%20DETA/dummi_resent_wall_id.dart';
 import 'package:wallpapers/models/wallpepars.dart';
 import 'package:wallpapers/screens/selected_wallpepar_screen.dart';
 
+import 'progress_bar.dart';
+
 class WallpeparItom extends StatefulWidget {
   const WallpeparItom({required this.wallpepar, Key? key}) : super(key: key);
   final Wallpaper wallpepar;
@@ -62,6 +64,10 @@ class _WallpeparItomState extends State<WallpeparItom> {
                     child: Image.network(
                       widget.wallpepar.ingUrl,
                       fit: BoxFit.cover,
+                        loadingBuilder: (BuildContext context, Widget child,
+                            ImageChunkEvent? loadingProgress) {
+                          return CirProgBar(context, child, loadingProgress);
+                        }
                     ),
                   ),
                 ),
